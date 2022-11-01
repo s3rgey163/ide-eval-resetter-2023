@@ -1,6 +1,9 @@
+/**
+ * https://plugins.gradle.org/plugin/org.jetbrains.intellij/1.8.1
+ */
 plugins {
-    id 'java'
-    id 'org.jetbrains.intellij' version '0.4.21'
+    id "java"
+    id "org.jetbrains.intellij" version "1.8.1"
 }
 
 group 'io.zhile.research.intellij'
@@ -11,20 +14,23 @@ repositories {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testImplementation group: 'junit', name: 'junit', version: '4.12'
 }
 
-// See https://github.com/JetBrains/gradle-intellij-plugin/
+/**
+ * See https://github.com/JetBrains/gradle-intellij-plugin/
+ * https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html#configuration-intellij-extension
+ */
 intellij {
 //    localPath "${System.properties['user.home']}/Applications/IntelliJ IDEA.app"
 //    alternativeIdePath localPath
-
-    version "2020.1.2"
-    type "IU"
+    version = "2022.2.3"
+    type = "IU"
 }
 
+
 patchPluginXml {
-    changeNotes """
+    changeNotes = """
     release v1.0.4
       1. reset completely
     release v1.0.3
@@ -32,6 +38,19 @@ patchPluginXml {
     release v1.0.2
       1. compatibility fix"""
 
-    sinceBuild "162"
-    untilBuild null
+    sinceBuild = "162"
+    untilBuild = null
+}
+
+
+/**
+ * 
+ * When targeting 2020.3 and later only, using Java 11 is required. See the IntelliJ project migrates to Java 11 blog post for details. 
+ * When targeting 2022.2 and later only, using Java 17 is required.
+ * 
+ * See https://plugins.jetbrains.com/docs/intellij/creating-plugin-project.html#creating-a-plugin-with-new-project-wizard
+ */
+java {
+    sourceCompatibility = "17"
+    targetCompatibility = "17"
 }
