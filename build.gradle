@@ -3,7 +3,7 @@
  */
 plugins {
     id "java"
-    id "org.jetbrains.intellij" version "1.8.1"
+    id "org.jetbrains.intellij" version "1.15.0"
 }
 
 group 'io.zhile.research.intellij'
@@ -24,7 +24,7 @@ dependencies {
 intellij {
 //    localPath "${System.properties['user.home']}/Applications/IntelliJ IDEA.app"
 //    alternativeIdePath localPath
-    version = "2022.2.3"
+    version = "2023.2.2"
     type = "IU"
 }
 
